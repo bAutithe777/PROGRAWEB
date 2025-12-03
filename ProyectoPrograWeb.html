@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thebauthi Productions</title>
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+ 
+ <style>
+  /* -------------------- ESTILOS GENERALES -------------------- */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: #fff;
+}
+ 
+/* -------------------- HEADER -------------------- */
+header {
+  display: flex;
+  align-items: center;
+  background: #0e0e0e;
+  padding: 15px 45px;
+  border-bottom: 1px solid #222;
+}
+ 
+header .logo img {
+  width: 40px;
+}
+ 
+header ul {
+  display: flex;
+  list-style: none;
+  margin-left: 18px;
+  gap: 20px;
+}
+ 
+header ul li {
+  cursor: pointer;
+  font-weight: 600;
+  color: #e6e6e6;
+}
+header ul li:hover { color: #f1c40f; }
+ 
+.iconos {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+ 
+.iconos i {
+  font-size: 22px;
+  cursor: pointer;
+}
+ 
+/* -------------------- HERO PRINCIPAL -------------------- */
+.hero {
+  position: relative;
+  padding: 90px 50px;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto 60px;
+}
+ 
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("img/teclado.jpg") no-repeat center right / 80%;
+  opacity: 0.35;
+  transition: transform 1.3s ease;
+  z-index: 1;
+}
+ 
+.hero:hover::before { transform: translateX(60px); }
+ 
+.hero h1 {
+  color: #f1c40f;
+  font-size: 43px;
+  line-height: 1.2;
+  font-weight: 800;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 20px;
+}
+ 
+.hero .box {
+  margin-top: 25px;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  font-size: 16px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+}
+ 
+.hero button {
+  margin-top: 28px;
+  background: #000;
+  color: #d8ad09;
+  border: 2px solid #f1c40f;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: .35s;
+  animation: pulse 2s infinite ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+ 
+.hero button:hover {
+  background: #d8ad09;
+  color: #000;
+  box-shadow: 0 0 18px #f1c40f;
+  transform: scale(1.07);
+}
+ 
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+ 
+/* --- SECCION SEGUNDARIA MENU STY (hero2 original) --- */
+.seccionMenuSty {
+  max-width: 900px;
+  margin: 40px auto 60px;
+  padding: 0 50px;
+}
+ 
+.seccionMenuSty h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #f1c40f;
+}
+ 
+.seccionMenuSty p {
+  background-color: #3c3b2f;
+  color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  line-height: 1.4;
+  margin-bottom: 30px;
+}
+ 
+.seccionMenuSty img {
+  max-width: 100%;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+ 
+/* --- SECCIÓN CUMBIA --- */
+.sectionCumbia {
+  max-width: 900px;
+  margin: 40px auto 60px;
+  padding: 0 50px;
+}
+ 
+.sectionCumbia h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+ 
+/* --- SECCIÓN BALADAS --- */
+.sectionBaladas {
+  max-width: 900px;
+  margin: 40px auto 60px;
+  padding: 0 50px;
+}
+ 
+.sectionBaladas h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+ 
+/* --- TARJETAS DE RITMOS --- */
+.AngelesAzules,
+.Grupo5,
+.SonoraDinamita,
+.LuisMiguel,
+.AlejandroSanz,
+.CristianCastro {
+  display: flex;
+  align-items: center;
+  background-color: #1e1e1e;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  gap: 15px;
+}
+ 
+.AngelesAzules img,
+.Grupo5 img,
+.SonoraDinamita img,
+.LuisMiguel img,
+.AlejandroSanz img,
+.CristianCastro img {
+  width: 45px;
+  height: 45px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+ 
+/* Botón Play */
+.btnPlay,
+.play-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+ 
+/* TEXTO DEL STYLE */
+.infoSty,
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+ 
+.infoSty strong,
+.info strong {
+  color: #fff;
+  font-size: 15px;
+}
+ 
+.infoSty small,
+.info small {
+  color: #71d3fc;
+  font-size: 11px;
+}
+ 
+/* PRECIO Y COMPRA */
+.precioSty,
+.precioComprar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+ 
+.precio {
+  font-weight: 700;
+  font-size: 14px;
+}
+ 
+.btnComprar {
+  background: #373737;
+  border-radius: 6px;
+  padding: 4px;
+  border: none;
+  cursor: pointer;
+}
+ 
+.btnComprar:hover {
+  background: #505050;
+}
+ 
+ 
+/* -------------------- SECCIONES DE COMPRA (CUMBIA & BALADA) -------------------- */
+.seccionCompraCumbia,
+.seccionCompraBalada {
+  max-width: 1050px;
+  margin: 40px auto;
+  background: #1b1b1b;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  color: #fff;
+  position: relative;
+}
+ 
+.videoTutorial {
+  width: 320px;
+  height: 180px;
+  background: #333;
+  border-radius: 10px;
+  overflow: hidden;
+}
+ 
+.stycumbia, .stybalada {
+  background: #d1c300;
+  padding: 4px 10px;
+  border-radius: 8px;
+  color: #000;
+  font-weight: 700;
+  font-size: 13px;
+  display: inline-block;
+}
+ 
+.seccionCompraCumbia h3,
+.seccionCompraBalada h3 {
+  margin: 10px 0;
+  font-size: 22px;
+  color: #ffe047;
+  font-weight: 700;
+}
+ 
+.seccionCompraCumbia p,
+.seccionCompraBalada p {
+  line-height: 1.45;
+  color: #e8e8e8;
+  font-size: 14px;
+  max-width: 680px;
+}
+ 
+.play {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+ 
+.play button {
+  background: none;
+  color: #fff;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+ 
+.play .progreso {
+  width: 100%;
+  height: 8px;
+  background: #555;
+  border-radius: 50px;
+}
+ 
+/* -------------------- BOTÓN DE CARRITO -------------------- */
+.agregarCarrito {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #373737;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+ 
+.agregarCarrito i { font-size: 20px; color: #fff; }
+.agregarCarrito:hover { background: #505050; transform: scale(1.05); }
+ 
+ </style>
+</head>
+<body>
+  <!--ENCABEZADO-->
+  <header>
+    <div class="logo">
+      <img src="img/Multimedia.jpg"/>
+    </div>
+ 
+      <ul>
+        <li>YAMAHA</li>
+        <li>KORG</li>
+        <li>CORG</li>
+      </ul>
+ 
+    <div class="iconos">
+      <i class="ri-shopping-cart-line"></i>
+      <i class="ri-account-circle-line"></i>
+    </div>
+  </header>
+ 
+  <!-- SECCION PRINCIPAL -->
+  <main class="hero">
+    <h1>Ritmos & Sonidos<br>Para teclados</h1>
+ 
+    <div class="box">
+      Aquí encontrarás una gran variedad de ritmos, sonidos y personalizaciones para tu teclado, diseñados para llevar tu música al siguiente nivel.
+      Contamos con styles de todos los géneros: desde cumbia, salsa y merengue, hasta pop, baladas y música electrónica. Cada paquete está cuidadosamente
+      creado para ofrecer sonidos realistas y de alta calidad, compatibles con los modelos más populares de teclados. <br><br>
+      Además, podrás disfrutar de efectos especiales, intros y fills que harán que tus interpretaciones suenen profesionales y únicas. Ya seas principiante
+      o músico avanzado, tenemos opciones para que personalices tu teclado y tu estilo musical según tu gusto. <br><br>
+      Haz que cada presentación, ensayo o grabación sea más dinámica, divertida y profesional con nuestros sonidos y styles listos para usar.
+      ¡Explora, prueba y dale vida a tu música!
+    </div>
+ 
+    <button>Ingresar Ahora</button>
+  </main>
+ 
+    <!-- SECCION SEGUNDARIA MENU DE ESTILOS -->
+  <section class="seccionMenuSty">
+    <h1>Ritmos & Sonidos Para teclados</h1>
+    <p>
+      ¡Dale vida a tu música! 🎹 <br>
+      Descubre sonidos y styles exclusivos para tu teclado: cumbia, salsa, pop y más, con calidad profesional. Haz que cada interpretación sea única y sorprende a todos. ¡Personaliza tu ritmo y compra ahora!
+    </p>
+ 
+    <img src="img/gratis-png-teclado-electronico-yamaha-psr-yamaha-corporation-piano-teclado.png"/>
+  </section>
+ 
+  <!-- SECCIÓN CUMBIA -->
+  <section class="sectionCumbia">
+    <h2>Cumbia</h2>
+ 
+    <div class="AngelesAzules">
+      <img src="img/angelesAzules.png"/>
+      <button class="btnPlay">▶</button>
+      <div class="infoSty">
+        <strong>Los Ángeles Azules – Cómo te voy a olvidar</strong>
+        <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
+      </div>
+      <div class="precioSty">
+        <span class="precio">Bs/20</span>
+        <button class="btnComprar">
+            <img src="img/imagen.jpg">
+        </button>
+      </div>
+    </div>
+ 
+    <div class="Grupo5">
+      <img src="img/grupo5.png"/>
+      <button class="btnPlay">▶</button>
+      <div class="info">
+        <strong>Grupo 5 – Motor y Motivo</strong>
+        <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
+      </div>
+      <div class="precioSty">
+        <span class="precio">Bs/35</span>
+        <button class="btnComprar">
+            <img src="img/imagen.jpg">
+        </button>
+      </div>
+    </div>
+ 
+    <div class="SonoraDinamita">
+      <img src="img/laSonoraDinamita.png"/>
+      <button class="btnPlay">▶</button>
+      <div class="infoSty">
+        <strong>La Sonora Dinamita – Escándalo</strong>
+        <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
+      </div>
+      <div class="precioComprar">
+        <span class="precio">Bs/40</span>
+        <button class="btnComprar">
+            <img src="img/imagen.jpg">
+        </button>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- SECCIÓN BALADAS -->
+  <section class="sectionBaladas">
+    <h2>Balada</h2>
+ 
+    <div class="LuisMiguel">
+      <img src="img/luisMiguel.png"/>
+      <button class="play-btn">▶</button>
+      <div class="infoSty">
+        <strong>Luis Miguel – La incondicional</strong>
+        <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
+      </div>
+      <div class="precioSty">
+        <span class="precio">Bs/35</span>
+        <button class="btnComprar">
+            <img src="img/imagen.jpg">
+        </button>
+      </div>
+    </div>
+ 
+    <div class="AlejandroSanz">
+      <img src="img/alejandrojanz.png"/>
+      <button class="btnPlay">▶</button>
+      <div class="infoSty">
+        <strong>Alejandro Sanz – Amiga mía</strong>
+        <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
+      </div>
+      <div class="precioSty">
+        <span class="precio">Bs/50</span>
+        <button class="btnComprar">
+            <img src="img/imagen.jpg">
+        </button>
+      </div>
+    </div>
+ 
+    <div class="CristianCastro">
+      <img src="img/cristianCastro.jpg"/>
+      <button class="btnPlay">▶</button>
+      <div class="infoSty">
+        <strong>Cristian Castro – Azul</strong>
+        <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
+      </div>
+      <div class="precioSty">
+        <span class="precio">Bs/40</span>
+        <button class="btnComprar">
+            <img src="img/imagen.jpg" alt="LaSonoraDinamita">
+        </button>
+      </div>
+    </div>
+  </section>
+ 
+   <!-- SECCION CUMBIA ANGELES AZULES -->
+  <section class="seccionCompraCumbia">
+  <button class="agregarCarrito">
+    <i class="ri-shopping-cart-2-line"></i>
+  </button>
+ 
+  <!-- VIDEO TUTORIAL -->
+  <div class="videoTutorial">
+  </div>
+ 
+  <div class="informacioSty">
+    <span class="stycumbia">Cumbias</span>
+    <h3 class="AngelesAzules">Los Angeles Azules - Como te voy a olvidar</h3>
+    <p>
+      El estilo de Los Ángeles Azules se basa en la cumbia sonidera mexicana, con ritmos muy bailables
+      y melodías románticas que destacan por el teclado. Sus sonidos característicos incluyen un lead
+      melódico brillante, piano eléctrico de acompañamiento, bronces sintetizados, bajo profundo y
+      percusión latina, logrando un ambiente festivo que levanta cualquier evento y siempre invita a bailar.
+    </p>
+    <div class="play">
+      <button>▶</button>
+      <div class="progreso"></div>
+      <span class="precio">Bs/20</span>
+    </div>
+  </div>
+</section>
+<!-- SECCION CUMBIA GRUPO 5 -->
+  <section class="seccionCompraCumbia">
+  <button class="agregarCarrito">
+    <i class="ri-shopping-cart-2-line"></i>
+  </button>
+ 
+  <!-- VIDEO TUTORIAL -->
+  <div class="videoTutorial">
+  </div>
+ 
+  <div class="informacioSty">
+    <span class="stycumbia">Cumbias</span>
+    <h3 class="Grupo5">Grupo 5 – Motor y Motivo</h3>
+    <p>
+      Los sonidos y estilos del Grupo 5 en la cumbia peruana se caracterizan por una base rítmica
+      bailable con guitarras eléctricas limpias y melódicas, teclados que alternan entre leads brillantes
+      y arreglos armonizados tipo “pads” que dan un toque romántico, líneas de bajo marcadas y redondas,
+      percusión con timbales y congas que mantienen el pulso festivo, y una voz principal expresiva que
+      suele combinar sentimiento con energía; en conjunto, su estilo fusiona la cumbia tradicional del
+      norte del Perú con elementos modernos de balada, pop y cumbia internacional, logrando un sonido
+      sofisticado, emotivo y altamente danceable ideal para trasladar al teclado arreglos ricos en
+      armonías, riffs pegajosos y patrones rítmicos claros.
+    </p>
+    <div class="play">
+      <button>▶</button>
+      <div class="progreso"></div>
+      <span class="precio">Bs/35</span>
+    </div>
+  </div>
+</section>
+ 
+<!-- SECCION CUMBIA LA SONORA DINAMITA -->
+  <section class="seccionCompraCumbia">
+  <button class="agregarCarrito">
+    <i class="ri-shopping-cart-2-line"></i>
+  </button>
+ 
+  <!-- VIDEO TUTORIAL -->
+  <div class="videoTutorial">
+  </div>
+ 
+  <div class="informacioSty">
+    <span class="stycumbia">Cumbias</span>
+    <h3 class="SonoraDinamita">La Sonora Dinamita – Escándalo</h3>
+    <p>
+      La Sonora Dinamita se distingue por ritmos de cumbia clásica sostenidos por güiro, congas y timbales,
+      acompañados de un bajo profundo y constante; sus metales aportan un sonido brillante y explosivo
+      con frases cortas y festivas, mientras que los teclados generan capas armónicas claras, timbres
+      agudos y melodías simples que refuerzan el carácter alegre y vibrante de la cumbia tradicional.
+    </p>
+    <div class="play">
+      <button>▶</button>
+      <div class="progreso"></div>
+      <span class="precio">Bs/40</span>
+    </div>
+  </div>
+</section>
+ 
+<!-- SECCION BALADA LUIS MIGUEL -->
+  <section class="seccionCompraBalada">
+  <button class="agregarCarrito">
+    <i class="ri-shopping-cart-2-line"></i>
+  </button>
+ 
+  <!-- VIDEO TUTORIAL -->
+  <div class="videoTutorial">
+  </div>
+ 
+  <div class="informacioSty">
+    <span class="stybalada">Balada</span>
+    <h3 class="LuisMiguel">Luis Miguel – La incondicional</h3>
+    <p>
+      En las baladas de Luis Miguel predominan arreglos elegantes y pulidos, con baterías suaves que
+      mantienen un ritmo lento y estable, líneas de bajo cálidas y redondas, pianos y teclados con
+      timbres ricos y envolventes, además de cuerdas orquestales que aportan dramatismo y amplitud;
+      las guitarras acústicas suelen añadir textura delicada, mientras que la voz —clara, potente y
+      controlada— se coloca al frente con reverberación sutil, creando un sonido romántico, emotivo
+      y sofisticado característico de sus producciones.
+    </p>
+    <div class="play">
+      <button>▶</button>
+      <div class="progreso"></div>
+      <span class="precio">Bs/35</span>
+    </div>
+  </div>
+</section>
+ 
+<!-- SECCION BALADA ALEJANDRO SANZ -->
+  <section class="seccionCompraBalada">
+  <button class="agregarCarrito">
+    <i class="ri-shopping-cart-2-line"></i>
+  </button>
+ 
+  <!-- VIDEO TUTORIAL -->
+  <div class="videoTutorial">
+  </div>
+ 
+  <div class="informacioSty">
+    <span class="stybalada">Balada</span>
+    <h3 class="AlejandroSanz">Alejandro Sanz – Amiga mía</h3>
+    <p>
+      En las baladas de Alejandro Jans predominan arreglos suaves y emocionales, con ritmos lentos
+      apoyados en batería ligera y percusiones discretas, líneas de bajo cálidas y profundas, y
+      pianos o teclados con timbres envolventes que llevan la melodía; las guitarras acústicas
+      suelen aportar textura íntima, mientras que arreglos de cuerdas o pads suaves refuerzan el
+      ambiente sentimental, creando un sonido romántico, limpio y centrado en la expresión vocal.
+    </p>
+    <div class="play">
+      <button>▶</button>
+      <div class="progreso"></div>
+      <span class="precio">Bs/50</span>
+    </div>
+  </div>
+</section>
+ 
+<!-- SECCION BALADA CRISTIAN CASTRO -->
+  <section class="seccionCompraBalada">
+  <button class="agregarCarrito">
+    <i class="ri-shopping-cart-2-line"></i>
+  </button>
+ 
+  <!-- VIDEO TUTORIAL -->
+  <div class="videoTutorial">
+  </div>
+ 
+  <div class="informacioSty">
+    <span class="stybalada">Balada</span>
+    <h3 class="CristianCastro">Cristian Castro – Azul</h3>
+    <p>
+      En las baladas de Cristian Castro predominan ritmos lentos sostenidos por baterías suaves y
+      bajos profundos, mientras que pianos y teclados crean una base armónica amplia con timbres
+      cálidos y brillantes; guitarras acústicas y eléctricas limpias aportan matices delicados, y
+      las cuerdas orquestales añaden un toque dramático y envolvente, dando como resultado un sonido
+      romántico, pulido y emotivo que resalta la voz aguda y muy expresiva del cantante.
+    </p>
+    <div class="play">
+      <button>▶</button>
+      <div class="progreso"></div>
+      <span class="precio">Bs/40</span>
+    </div>
+  </div>
+</section>
+ 
+</body>
+</html>
