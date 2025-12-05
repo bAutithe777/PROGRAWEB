@@ -25,14 +25,14 @@
         <li>CORG</li>
       </ul>
  
-    <div class="iconos">
+    <div class="iconos">  
       <i class="ri-shopping-cart-line"></i>
       <i class="ri-account-circle-line"></i>
     </div>
   </header>
  
   <!-- SECCION PRINCIPAL -->
-  <main class="hero">
+  <main class="hero" id="ventanaPrincipal">
     <h1>Ritmos & Sonidos<br>Para teclados</h1>
  
     <div class="box">
@@ -45,11 +45,15 @@
       ¡Explora, prueba y dale vida a tu música!
     </div>
  
-    <button>Ingresar Ahora</button>
+    <button id="btnIngresar">Ingresar Ahora</button>
   </main>
  
     <!-- SECCION SEGUNDARIA MENU DE ESTILOS -->
-  <section class="seccionMenuSty">
+  
+    
+
+  <section class="seccionMenuSty" id="ventanaEstilos">
+    <button class="volverAtras" data-volver="ventanaPrincipal">⬅</button>
     <h1>Ritmos & Sonidos Para teclados</h1>
     <p>
       ¡Dale vida a tu música! 🎹 <br>
@@ -57,22 +61,22 @@
     </p>
  
     <img src="img/gratis-png-teclado-electronico-yamaha-psr-yamaha-corporation-piano-teclado.png"/>
-  </section>
+  
  
   <!-- SECCIÓN CUMBIA -->
-  <section class="sectionCumbia">
+  <div class="sectionCumbia">
     <h2>Cumbia</h2>
  
     <div class="AngelesAzules">
       <img src="img/angelesAzules.png"/>
-      <button class="btnPlay">▶</button>
+      <button class="btnPlay" data-audio="">▶</button>
       <div class="infoSty">
-        <strong>Los Ángeles Azules – Cómo te voy a olvidar</strong>
+        <strong class="tituloSty" data-detalle="detalleAngelesAzules">Los Ángeles Azules – Cómo te voy a olvidar</strong>
         <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
       </div>
       <div class="precioSty">
         <span class="precio">Bs/20</span>
-        <button class="btnComprar">
+        <button class="btnComprar" data-producto="Los Ángeles Azules – Cómo te voy a olvidar">
             <img src="img/imagen.jpg">
         </button>
       </div>
@@ -80,14 +84,14 @@
  
     <div class="Grupo5">
       <img src="img/grupo5.png"/>
-      <button class="btnPlay">▶</button>
+      <button class="btnPlay" data-audio="">▶</button>
       <div class="info">
-        <strong>Grupo 5 – Motor y Motivo</strong>
+        <strong class="tituloSty" data-detalle="detalleGrupo5">Grupo 5 – Motor y Motivo</strong>
         <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
       </div>
       <div class="precioSty">
         <span class="precio">Bs/35</span>
-        <button class="btnComprar">
+        <button class="btnComprar" data-producto="Grupo 5 – Motor y Motivo">
             <img src="img/imagen.jpg">
         </button>
       </div>
@@ -95,34 +99,34 @@
  
     <div class="SonoraDinamita">
       <img src="img/laSonoraDinamita.png"/>
-      <button class="btnPlay">▶</button>
+      <button class="btnPlay" data-audio="">▶</button>
       <div class="infoSty">
-        <strong>La Sonora Dinamita – Escándalo</strong>
+        <strong class="tituloSty" data-detalle="detalleLaSonoraDinamita">La Sonora Dinamita – Escándalo</strong>
         <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
       </div>
       <div class="precioComprar">
         <span class="precio">Bs/40</span>
-        <button class="btnComprar">
+        <button class="btnComprar" data-producto="La Sonora Dinamita – Escándalo">
             <img src="img/imagen.jpg">
         </button>
       </div>
     </div>
-  </section>
+  </div>
  
   <!-- SECCIÓN BALADAS -->
-  <section class="sectionBaladas">
+  <div class="sectionBaladas">
     <h2>Balada</h2>
  
     <div class="LuisMiguel">
       <img src="img/luisMiguel.png"/>
-      <button class="play-btn">▶</button>
+      <button class="play-btn" data-audio="">▶</button>
       <div class="infoSty">
-        <strong>Luis Miguel – La incondicional</strong>
+        <strong class="tituloSty" data-detalle="detalleLuisMiguel">Luis Miguel – La incondicional</strong>
         <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
       </div>
       <div class="precioSty">
         <span class="precio">Bs/35</span>
-        <button class="btnComprar">
+        <button class="btnComprar" data-producto="Luis Miguel – La incondicional">
             <img src="img/imagen.jpg">
         </button>
       </div>
@@ -130,14 +134,14 @@
  
     <div class="AlejandroSanz">
       <img src="img/alejandrojanz.png"/>
-      <button class="btnPlay">▶</button>
+      <button class="btnPlay" data-audio="">▶</button>
       <div class="infoSty">
-        <strong>Alejandro Sanz – Amiga mía</strong>
+        <strong class="tituloSty" data-detalle="detalleAlenjandroSanz">Alejandro Sanz – Amiga mía</strong>
         <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
       </div>
       <div class="precioSty">
         <span class="precio">Bs/50</span>
-        <button class="btnComprar">
+        <button class="btnComprar" data-producto="Alejandro Sanz – Amiga mía">
             <img src="img/imagen.jpg">
         </button>
       </div>
@@ -145,22 +149,27 @@
  
     <div class="CristianCastro">
       <img src="img/cristianCastro.jpg"/>
-      <button class="btnPlay">▶</button>
+      <button class="btnPlay" data-audio="">▶</button>
       <div class="infoSty">
-        <strong>Cristian Castro – Azul</strong>
+        <strong class="tituloSty" data-detalle="detalleCristianCastro">Cristian Castro – Azul</strong>
         <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
       </div>
       <div class="precioSty">
         <span class="precio">Bs/40</span>
-        <button class="btnComprar">
-            <img src="img/imagen.jpg" alt="LaSonoraDinamita">
+        <button class="btnComprar" data-producto="Cristian Castro – Azul">
+            <img src="img/imagen.jpg">
         </button>
       </div>
     </div>
+  </div>
   </section>
  
    <!-- SECCION CUMBIA ANGELES AZULES -->
-  <section class="seccionCompraCumbia">
+
+   
+
+  <section class="seccionCompraCumbia" id="detalleAngelesAzules">
+  <button class="volverAtras" data-volver="ventanaEstilos">⬅ Volver</button>
   <button class="agregarCarrito">
     <i class="ri-shopping-cart-2-line"></i>
   </button>
@@ -186,7 +195,10 @@
   </div>
 </section>
 <!-- SECCION CUMBIA GRUPO 5 -->
-  <section class="seccionCompraCumbia">
+
+
+  <section class="seccionCompraCumbia" id="detalleGrupo5">
+  <button class="volverAtras" data-volver="ventanaEstilos">⬅ Volver</button>
   <button class="agregarCarrito">
     <i class="ri-shopping-cart-2-line"></i>
   </button>
@@ -217,7 +229,10 @@
 </section>
  
 <!-- SECCION CUMBIA LA SONORA DINAMITA -->
-  <section class="seccionCompraCumbia">
+
+
+  <section class="seccionCompraCumbia" id="detalleLaSonoraDinamita">
+     <button class="volverAtras" data-volver="ventanaEstilos">⬅ Volver</button>
   <button class="agregarCarrito">
     <i class="ri-shopping-cart-2-line"></i>
   </button>
@@ -244,7 +259,10 @@
 </section>
  
 <!-- SECCION BALADA LUIS MIGUEL -->
-  <section class="seccionCompraBalada">
+
+
+  <section class="seccionCompraBalada" id="detalleLuisMiguel">
+  <button class="volverAtras" data-volver="ventanaEstilos">⬅ Volver</button>
   <button class="agregarCarrito">
     <i class="ri-shopping-cart-2-line"></i>
   </button>
@@ -273,7 +291,10 @@
 </section>
  
 <!-- SECCION BALADA ALEJANDRO SANZ -->
-  <section class="seccionCompraBalada">
+
+
+  <section class="seccionCompraBalada" id="detalleAlenjandroSanz">
+  <button class="volverAtras" data-volver="ventanaEstilos">⬅ Volver</button>
   <button class="agregarCarrito">
     <i class="ri-shopping-cart-2-line"></i>
   </button>
@@ -301,7 +322,9 @@
 </section>
  
 <!-- SECCION BALADA CRISTIAN CASTRO -->
-  <section class="seccionCompraBalada">
+
+  <section class="seccionCompraBalada" id="detalleCristianCastro">
+<button class="volverAtras" data-volver="ventanaEstilos">⬅ Volver</button>
   <button class="agregarCarrito">
     <i class="ri-shopping-cart-2-line"></i>
   </button>
@@ -327,6 +350,6 @@
     </div>
   </div>
 </section>
- 
+ <script src="script.js"></script>
 </body>
 </html>
