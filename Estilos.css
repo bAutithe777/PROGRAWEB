@@ -1,4 +1,4 @@
-/* -------------------- ESTILOS GENERALES -------------------- */
+/*ESTILOS GENERALES*/
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -6,7 +6,69 @@ body {
   color: #fff;
 }
  
-/* -------------------- HEADER -------------------- */
+ /* --- Menú --- */
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    nav ul li:hover {
+      color: #d8ad09;
+    }
+
+    /* --- Iconos --- */
+    .iconos i {
+      font-size: 1.5rem;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+
+    /* --- Botón hamburguesa --- */
+    .hamburguesa {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburguesa span {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    /* --- Menú responsive --- */
+    @media (max-width: 768px) {
+      nav ul {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #111;
+        flex-direction: column;
+        width: 200px;
+        text-align: right;
+        padding: 20px;
+        gap: 15px;
+        display: none;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .hamburguesa {
+        display: flex;
+      }
+    }
+
+/*HEADER*/
 header {
   display: flex;
   align-items: center;
@@ -45,7 +107,7 @@ header ul li:hover { color: #f1c40f; }
   cursor: pointer;
 }
  
-/* -------------------- HERO PRINCIPAL -------------------- */
+/*HERO PRINCIPAL*/
 .hero {
   position: relative;
   padding: 90px 50px;

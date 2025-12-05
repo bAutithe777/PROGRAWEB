@@ -12,6 +12,13 @@ const botonesPlay = document.querySelectorAll(".btnPlay, .play-btn");
 const carritoIcono = document.querySelector(".ri-shopping-cart-line");
 let carritoConteo = 0;
 
+ const hamburguesa = document.getElementById('hamburguesa');
+    const menu = document.getElementById('menu');
+
+    hamburguesa.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
+
 
 // MOSTRAR / OCULTAR SECCIONES
 
@@ -21,7 +28,6 @@ function mostrarVentana(id) {
   });
   document.getElementById(id).style.display = "block";
 }
-
 
 // PRIMERA VENTANA → SEGUNDA
 
