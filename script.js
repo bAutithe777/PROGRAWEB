@@ -329,3 +329,63 @@ window.addEventListener("click", e => {
         modalCarrito.style.display = "none";
     }
 });
+
+/* ================= FILTRAR POR MARCA DEL MENÚ ================= */
+
+const opcionesMenu = document.querySelectorAll("#menu li");
+const ventanaFiltrada = document.getElementById("ventanaFiltrada");
+const listaFiltrada = document.getElementById("listaFiltrada");
+const tituloFiltro = document.getElementById("tituloFiltro");
+
+opcionesMenu.forEach(op => {
+  op.addEventListener("click", () => {
+    const marca = op.textContent.trim().toUpperCase();
+    filtrarPorMarca(marca);
+
+    // cerrar menú hamburguesa en móvil
+    menu.classList.remove("show");
+  });
+});
+
+function filtrarPorMarca(marca) {
+  // limpiar vista
+  listaFiltrada.innerHTML = "";
+
+  // buscar todas las tarjetas de estilos
+  const estilos = document.querySelectorAll(
+    ".AngelesAzules, .Grupo5, .SonoraDinamita, .LuisMiguel, .AlejandroSanz, .CristianCastro"
+  );
+
+  let encontrados = 0;
+
+  estilos.forEach(est => {
+    const texto = est.querySelector("small").textContent.toUpperCase();
+
+    if (texto.includes(marca)) {
+      encontrados++;
+
+      const img = est.querySelector("img").src;
+      const nombre = est.querySelector("strong").textContent;
+      const desc = est.querySelector("small").textContent;
+
+      listaFiltrada.innerHTML += `
+        <div class="filtroItem">
+          <img src="${img}">
+          <div>
+            <strong>${nombre}</strong>
+            <br>
+            <small>${desc}</small>
+          </div>
+        </div>
+      `;
+    }
+  });
+
+  tituloFiltro.textContent = `Compatible con: ${marca}`;
+
+  if (encontrados === 0) {
+    listaFiltrada.innerHTML = "<p>No hay estilos compatibles con esta marca.</p>";
+  }
+
+  mostrarVentana("ventanaFiltrada");
+}

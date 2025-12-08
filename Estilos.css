@@ -574,7 +574,7 @@ header ul li:hover { color: #f1c40f; }
     cursor: pointer;
 }
 
-/* ===================== MODAL CARRITO ===================== */
+/*CARRITO DE COMPRAS*/
 .modalCarrito {
     position: fixed;
     top: 0;
@@ -649,7 +649,7 @@ header ul li:hover { color: #f1c40f; }
 
 .contadorCarrito {
   position: absolute;
- font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   top: -8px;
   right: -10px;
   background: red;
@@ -661,3 +661,118 @@ header ul li:hover { color: #f1c40f; }
   z-index: 20;
 }
 
+/* PIE DE PAGINA*/
+.footer {
+  background: #0a0a0a;
+  padding: 40px 20px;
+  margin-top: 60px;
+  border-top: 2px solid #111;
+}
+
+.footer-contenedor {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col h3,
+.footer-col h4 {
+  margin-bottom: 15px;
+  color: #d8ad09;
+  font-weight: 600;
+}
+
+.footer-col p,
+.footer-col ul li a {
+  color: #ccc;
+  font-size: 14px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #d8ad09;
+}
+
+.footer-redes i {
+  font-size: 1.8rem;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-redes i:hover {
+  color: #d8ad09;
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 35px;
+  font-size: 13px;
+  color: #777;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-contenedor {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-contenedor {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-redes {
+    justify-content: center;
+  }
+}
+
+/* RESULTADO FILTRADO POR MARCA */
+.seccionFiltrada {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.filtroItem {
+  display: flex;
+  align-items: center;
+  background: #1e1e1e;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  gap: 15px;
+}
+
+.filtroItem img {
+  width: 45px;
+  height: 45px;
+  border-radius: 6px;
+}
+
+.filtroItem strong {
+  font-size: 15px;
+  color: #fff;
+}
+
+.filtroItem small {
+  font-size: 11px;
+  color: #71d3fc;
+}
