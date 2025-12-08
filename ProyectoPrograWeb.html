@@ -77,7 +77,7 @@
  
     <div class="AngelesAzules">
       <img src="img/angelesAzules.png"/>
-      <button class="btnPlay" data-audio="">▶</button>
+      <button class="btnPlay" data-audio="audios/angelesazules.mp3">▶</button>
       <div class="infoSty">
         <strong class="tituloSty" data-detalle="detalleAngelesAzules">Los Ángeles Azules – Cómo te voy a olvidar</strong>
         <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
@@ -92,7 +92,7 @@
  
     <div class="Grupo5">
       <img src="img/grupo5.png"/>
-      <button class="btnPlay" data-audio="">▶</button>
+      <button class="btnPlay" data-audio="audio/grupo5.mp3">▶</button>
       <div class="info">
         <strong class="tituloSty" data-detalle="detalleGrupo5">Grupo 5 – Motor y Motivo</strong>
         <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
@@ -127,7 +127,7 @@
  
     <div class="LuisMiguel">
       <img src="img/luisMiguel.png"/>
-      <button class="play-btn" data-audio="">▶</button>
+      <button class="play-btn" data-audio="audio/luismiguel.mp3">▶</button>
       <div class="infoSty">
         <strong class="tituloSty" data-detalle="detalleLuisMiguel">Luis Miguel – La incondicional</strong>
         <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
@@ -157,7 +157,7 @@
  
     <div class="CristianCastro">
       <img src="img/cristianCastro.jpg"/>
-      <button class="btnPlay" data-audio="">▶</button>
+      <button class="btnPlay" data-audio="audio/azul.mp3">▶</button>
       <div class="infoSty">
         <strong class="tituloSty" data-detalle="detalleCristianCastro">Cristian Castro – Azul</strong>
         <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
@@ -196,7 +196,7 @@
       percusión latina, logrando un ambiente festivo que levanta cualquier evento y siempre invita a bailar.
     </p>
     <div class="play">
-      <button>▶</button>
+      <button class="btnPlay" data-audio="audios/angelesazules.mp3">▶</button>
       <div class="progreso"></div>
       <span class="precio">Bs/20</span>
     </div>
@@ -228,11 +228,12 @@
       sofisticado, emotivo y altamente danceable ideal para trasladar al teclado arreglos ricos en
       armonías, riffs pegajosos y patrones rítmicos claros.
     </p>
+    
+    </div>
     <div class="play">
-      <button>▶</button>
+      <button class="btnPlay" data-audio="audio/grupo5.mp3">▶</button>
       <div class="progreso"></div>
       <span class="precio">Bs/35</span>
-    </div>
   </div>
 </section>
  
@@ -291,7 +292,7 @@
       y sofisticado característico de sus producciones.
     </p>
     <div class="play">
-      <button>▶</button>
+      <button class="play-btn" data-audio="audio/luismiguel.mp3">▶</button>
       <div class="progreso"></div>
       <span class="precio">Bs/35</span>
     </div>
@@ -352,12 +353,63 @@
       romántico, pulido y emotivo que resalta la voz aguda y muy expresiva del cantante.
     </p>
     <div class="play">
-      <button>▶</button>
+      <button class="btnPlay" data-audio="audio/azul.mp3">▶</button>
       <div class="progreso"></div>
       <span class="precio">Bs/40</span>
     </div>
   </div>
 </section>
+
+<!-- ===================== VENTANA LOGIN / SIGNUP ===================== -->
+<div class="modalAuth" id="modalAuth">
+    <div class="authBox">
+        <span class="cerrarAuth" id="cerrarAuth">×</span>
+
+        <!-- LOGIN -->
+        <div class="loginForm" id="loginForm">
+            <h2>Iniciar Sesión</h2>
+            <input type="email" id="loginEmail" placeholder="Correo electrónico">
+            <input type="password" id="loginPass" placeholder="Contraseña">
+            <button id="btnLogin">Entrar</button>
+
+            <p class="cambiarVista">
+                ¿No tienes cuenta?
+                <span id="irSignup">Regístrate aquí</span>
+            </p>
+        </div>
+
+        <!-- SIGNUP -->
+        <div class="signupForm" id="signupForm">
+            <h2>Crear Cuenta</h2>
+            <input type="text" id="signupNombre" placeholder="Tu nombre">
+            <input type="email" id="signupEmail" placeholder="Correo electrónico">
+            <input type="password" id="signupPass" placeholder="Contraseña">
+            <button id="btnSignup">Registrar</button>
+
+            <p class="cambiarVista">
+                ¿Ya tienes cuenta?
+                <span id="irLogin">Iniciar sesión</span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- ===================== MODAL CARRITO ===================== -->
+<div class="modalCarrito" id="modalCarrito">
+  <div class="carritoBox">
+    <span class="cerrarCarrito" id="cerrarCarrito">×</span>
+    <h2>Carrito de Compras</h2>
+
+    <div id="listaCarrito"></div>
+
+    <div class="totalCarrito">
+      Total: <span id="totalCarrito">Bs/0</span>
+    </div>
+
+    <button class="btnPagar">Proceder al Pago</button>
+  </div>
+</div>
+
  <script src="script.js"></script>
 </body>
 </html>
