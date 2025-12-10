@@ -1,6 +1,4 @@
-/* -----------------------------
- VARIABLES GENERALES
-------------------------------*/
+/*VARIABLES GENERALES*/
 
 const ventanaPrincipal = document.getElementById("ventanaPrincipal");
 const ventanaEstilos = document.getElementById("ventanaEstilos");
@@ -17,16 +15,12 @@ const carritoIcono = document.querySelector(".ri-shopping-cart-line");
 const hamburguesa = document.getElementById('hamburguesa');
 const menu = document.getElementById('menu');
 
-/* -----------------------------
- MENÚ HAMBURGUESA
-------------------------------*/
+/*MENÚ HAMBURGUESA*/
 hamburguesa.addEventListener('click', () => {
     menu.classList.toggle('show');
 });
 
-/* -----------------------------
- MOSTRAR/OCULTAR SECCIONES
-------------------------------*/
+/*MOSTRAR Y OCULTAR SECCIONES*/
 function mostrarVentana(id) {
     document.querySelectorAll("section, main").forEach(sec => sec.style.display = "none");
     document.getElementById(id).style.display = "block";
@@ -41,18 +35,15 @@ botonesVolver.forEach(btn => {
     });
 });
 
-/* -----------------------------
- ABRIR DETALLES POR TÍTULO
-------------------------------*/
+/*ABRIR DETALLES POR TÍTULO*/
 titulos.forEach(titulo => {
     titulo.addEventListener("click", () => {
         mostrarVentana(titulo.getAttribute("data-detalle"));
     });
 });
 
-/* -----------------------------
- AGREGAR AL CARRITO
-------------------------------*/
+/*AGREGAR AL CARRITO
+*/
 function extraerPrecio(el) {
     return Number(el.querySelector(".precio").textContent.replace("Bs/", ""));
 }
@@ -76,9 +67,8 @@ function actualizarCarrito() {
     carritoIcono.innerHTML = `<span class="contadorCarrito">${carritoConteo}</span>`;
 }
 
-/* -----------------------------
- REPRODUCTOR DE AUDIO
-------------------------------*/
+/*REPRODUCTOR DE AUDIO
+*/
 let audioActual = null;
 let botonActual = null;
 
@@ -114,9 +104,7 @@ botonesPlay.forEach(btn => {
     });
 });
 
-/* -----------------------------
- LOGIN & SIGNUP
-------------------------------*/
+/*LOGIN Y SIGNUP*/
 
 const modalAuth = document.getElementById("modalAuth");
 const loginForm = document.getElementById("loginForm");
@@ -149,7 +137,7 @@ irLogin.addEventListener("click", () => {
     loginForm.style.display = "block";
 });
 
-/* --- Validaciones --- */
+/*Validaciones*/
 const regEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const regNombre = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s]+$/;
 
@@ -181,7 +169,7 @@ document.getElementById("btnSignup").addEventListener("click", () => {
     loginForm.style.display = "block";
 });
 
-/* --- Login --- */
+/*Login*/
 document.getElementById("btnLogin").addEventListener("click", () => {
     const email = loginEmail.value.trim();
     const pass = loginPass.value.trim();
@@ -199,9 +187,7 @@ document.getElementById("btnLogin").addEventListener("click", () => {
     }
 });
 
-/* -----------------------------
- CARRITO DE COMPRAS
-------------------------------*/
+/*CARRITO DE COMPRAS*/
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -265,9 +251,7 @@ window.addEventListener("click", e => {
     if (e.target === modalCarrito) modalCarrito.style.display = "none";
 });
 
-/* -----------------------------
- PAGO
-------------------------------*/
+/*PAGO*/
 document.querySelector(".btnPagar").addEventListener("click", () => {
     document.getElementById("formPago").style.display = "flex";
 });
@@ -289,9 +273,7 @@ document.getElementById("pagarAhora").addEventListener("click", () => {
     campos.forEach(c => document.getElementById(c).value = "");
 });
 
-/* -----------------------------
- FOOTER
-------------------------------*/
+/*FOOTER*/
 document.querySelectorAll(".link-footer").forEach(enlace => {
     enlace.addEventListener("click", e => {
         e.preventDefault();
@@ -311,9 +293,7 @@ document.querySelectorAll(".link-footer").forEach(enlace => {
     });
 });
 
-/* -----------------------------
- ANIMACIÓN
-------------------------------*/
+/*ANIMACIÓN PARA TRANSICIOENES*/
 function animacionSuave(id) {
     const seccion = document.getElementById(id);
     seccion.style.opacity = 0;
@@ -321,9 +301,7 @@ function animacionSuave(id) {
     setTimeout(() => (seccion.style.opacity = 1), 50);
 }
 
-/* -----------------------------
- FILTRO POR MARCA
-------------------------------*/
+/*FILTRO POR MARCA*/
 const botonesMarcas = document.querySelectorAll("#menu li");
 const styles = document.querySelectorAll(".sectionCumbia > div, .sectionBaladas > div");
 
@@ -341,9 +319,7 @@ botonesMarcas.forEach(boton => {
     });
 });
 
-/* -----------------------------
- RESTAURAR FILTROS
-------------------------------*/
+/*RESTAURAR LAS SECCIONES INDEPENDIENTES*/
 btnVerTodo.addEventListener("click", () => {
     styles.forEach(style => {
         style.style.display = "flex";
