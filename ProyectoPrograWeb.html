@@ -61,8 +61,10 @@
     
 
   <section class="seccionMenuSty" id="ventanaEstilos">
-    <button class="volverAtras" data-volver="ventanaPrincipal">⬅</button>
+    <button class="volverAtras" data-volver="ventanaPrincipal"><img src="img/volver.png" alt=""></button>
     <h1>Ritmos & Sonidos Para teclados</h1>
+    
+
     <p>
       ¡Dale vida a tu música! 🎹 <br>
       Descubre sonidos y styles exclusivos para tu teclado: cumbia, salsa, pop y más, con calidad profesional. Haz que cada interpretación sea única y sorprende a todos. ¡Personaliza tu ritmo y compra ahora!
@@ -70,12 +72,12 @@
  
     <img src="img/gratis-png-teclado-electronico-yamaha-psr-yamaha-corporation-piano-teclado.png"/>
   
- 
+ <button id="btnVerTodo" style="display:none; margin:10px 0;">Mostrar Todo</button>
   <!-- SECCIÓN CUMBIA -->
   <div class="sectionCumbia">
     <h2>Cumbia</h2>
  
-    <div class="AngelesAzules">
+    <div class="AngelesAzules" data-marcas="yamaha,korg">
       <img src="img/angelesAzules.png"/>
       <button class="btnPlay" data-audio="audios/angelesazules.mp3">▶</button>
       <div class="infoSty">
@@ -90,12 +92,13 @@
       </div>
     </div>
  
-    <div class="Grupo5">
+    
+<div class="Grupo5" data-marcas="yamaha,casio">
       <img src="img/grupo5.png"/>
       <button class="btnPlay" data-audio="audio/grupo5.mp3">▶</button>
       <div class="info">
         <strong class="tituloSty" data-detalle="detalleGrupo5">Grupo 5 – Motor y Motivo</strong>
-        <small>sty libre no requiere sample. Este ritmo es un sty libre para teclados YAMAHA...</small>
+        <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
       </div>
       <div class="precioSty">
         <span class="precio">Bs/35</span>
@@ -105,12 +108,12 @@
       </div>
     </div>
  
-    <div class="SonoraDinamita">
+    <div class="SonoraDinamita" data-marcas="korg,casio">
       <img src="img/laSonoraDinamita.png"/>
       <button class="btnPlay" data-audio="">▶</button>
       <div class="infoSty">
         <strong class="tituloSty" data-detalle="detalleLaSonoraDinamita">La Sonora Dinamita – Escándalo</strong>
-        <small>sty libre no requiere sample. Este ritmo es un sty libre para YAMAHA, KORG...</small>
+        <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
       </div>
       <div class="precioComprar">
         <span class="precio">Bs/40</span>
@@ -125,12 +128,12 @@
   <div class="sectionBaladas">
     <h2>Balada</h2>
  
-    <div class="LuisMiguel">
+    <div class="LuisMiguel" data-marcas="yamaha,korg,casio">
       <img src="img/luisMiguel.png"/>
       <button class="play-btn" data-audio="audio/luismiguel.mp3">▶</button>
       <div class="infoSty">
         <strong class="tituloSty" data-detalle="detalleLuisMiguel">Luis Miguel – La incondicional</strong>
-        <small>sty libre no requiere sample. Este ritmo es un sty libre para YAMAHA, CACIO...</small>
+        <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
       </div>
       <div class="precioSty">
         <span class="precio">Bs/35</span>
@@ -140,7 +143,7 @@
       </div>
     </div>
  
-    <div class="AlejandroSanz">
+    <div class="AlejandroSanz" data-marcas="yamaha">
       <img src="img/alejandrojanz.png"/>
       <button class="btnPlay" data-audio="">▶</button>
       <div class="infoSty">
@@ -155,12 +158,12 @@
       </div>
     </div>
  
-    <div class="CristianCastro">
+    <div class="CristianCastro" data-marcas="korg">
       <img src="img/cristianCastro.jpg"/>
       <button class="btnPlay" data-audio="audio/azul.mp3">▶</button>
       <div class="infoSty">
         <strong class="tituloSty" data-detalle="detalleCristianCastro">Cristian Castro – Azul</strong>
-        <small>sty libre no requiere sample. Este ritmo es un sty libre para KORG, CACIO...</small>
+        <small>sty libre no requiere sample. Este ritmo es un sty libre para cualquier teclado...</small>
       </div>
       <div class="precioSty">
         <span class="precio">Bs/40</span>
@@ -172,18 +175,12 @@
   </div>
   </section>
  
-  <section class="seccionFiltrada" id="ventanaFiltrada" style="display:none;">
-  <button class="volverAtras" data-volver="ventanaEstilos">⬅ Volver</button>
-  <h1 id="tituloFiltro"></h1>
-  <div id="listaFiltrada"></div>
-</section>
-
    <!-- SECCION CUMBIA ANGELES AZULES -->
 
    
 
   <section class="seccionCompraCumbia" id="detalleAngelesAzules">
-  <button class="volverAtras" data-volver="ventanaEstilos">⬅ Volver</button>
+  <button class="volverAtras" data-volver="ventanaEstilos"><img src="img/volver.png" alt=""></button>
   <button class="agregarCarrito">
     <i class="ri-shopping-cart-2-line"></i>
   </button>
@@ -212,7 +209,7 @@
 
 
   <section class="seccionCompraCumbia" id="detalleGrupo5">
-  <button class="volverAtras" data-volver="ventanaEstilos">⬅ Volver</button>
+  <button class="volverAtras" data-volver="ventanaEstilos"><img src="img/volver.png" alt=""></button>
   <button class="agregarCarrito">
     <i class="ri-shopping-cart-2-line"></i>
   </button>
@@ -247,7 +244,7 @@
 
 
   <section class="seccionCompraCumbia" id="detalleLaSonoraDinamita">
-     <button class="volverAtras" data-volver="ventanaEstilos">⬅ Volver</button>
+     <button class="volverAtras" data-volver="ventanaEstilos"><img src="img/volver.png" alt=""></button>
   <button class="agregarCarrito">
     <i class="ri-shopping-cart-2-line"></i>
   </button>
@@ -277,7 +274,7 @@
 
 
   <section class="seccionCompraBalada" id="detalleLuisMiguel">
-  <button class="volverAtras" data-volver="ventanaEstilos">⬅ Volver</button>
+  <button class="volverAtras" data-volver="ventanaEstilos"><img src="img/volver.png" alt=""></button>
   <button class="agregarCarrito">
     <i class="ri-shopping-cart-2-line"></i>
   </button>
@@ -309,7 +306,7 @@
 
 
   <section class="seccionCompraBalada" id="detalleAlenjandroSanz">
-  <button class="volverAtras" data-volver="ventanaEstilos">⬅ Volver</button>
+  <button class="volverAtras" data-volver="ventanaEstilos"><img src="img/volver.png" alt=""></button>
   <button class="agregarCarrito">
     <i class="ri-shopping-cart-2-line"></i>
   </button>
@@ -339,12 +336,12 @@
 <!-- SECCION BALADA CRISTIAN CASTRO -->
 
   <section class="seccionCompraBalada" id="detalleCristianCastro">
-<button class="volverAtras" data-volver="ventanaEstilos">⬅ Volver</button>
+<button class="volverAtras" data-volver="ventanaEstilos"><img src="img/volver.png" alt=""></button>
   <button class="agregarCarrito">
     <i class="ri-shopping-cart-2-line"></i>
   </button>
  
-  <!--VIDEO TUTORIAL-->
+  <!-- VIDEO TUTORIAL -->
   <div class="videoTutorial">
   </div>
  
@@ -366,7 +363,7 @@
   </div>
 </section>
 
-<!--VENTANA LOGIN / SIGNUP-->
+<!-- ===================== VENTANA LOGIN / SIGNUP ===================== -->
 <div class="modalAuth" id="modalAuth">
     <div class="authBox">
         <span class="cerrarAuth" id="cerrarAuth">×</span>
@@ -400,7 +397,7 @@
     </div>
 </div>
 
-<!-- CARRITO DE COMPRAS-->
+<!-- ===================== MODAL CARRITO ===================== -->
 <div class="modalCarrito" id="modalCarrito">
   <div class="carritoBox">
     <span class="cerrarCarrito" id="cerrarCarrito">×</span>
@@ -415,6 +412,30 @@
     <button class="btnPagar">Proceder al Pago</button>
   </div>
 </div>
+
+<!-- FORMULARIO DE PAGO OCULTO -->
+<div id="formPago" class="form-pago" style="display: none;">
+  <div class="boxPago">
+    <h2>Datos de pago</h2>
+
+    <label>Nombre completo:</label>
+    <input type="text" id="nombre" required>
+
+    <label>Dirección:</label>
+    <input type="text" id="direccion" required>
+
+    <label>Código postal:</label>
+    <input type="text" id="postal" required>
+
+    <label>Teléfono:</label>
+    <input type="text" id="telefono" required>
+
+    <label>Correo electrónico:</label>
+    <input type="email" id="correo" required>
+
+    <button id="pagarAhora">Pagar ahora</button>
+  </div>
+</div>
 <!-- PIE DE PAGINA -->
 <footer class="footer">
   <div class="footer-contenedor">
@@ -425,14 +446,15 @@
     </div>
 
     <div class="footer-col">
-      <h4>Enlaces Rápidos</h4>
-      <ul>
-        <li><a href="#ventanaPrincipal">Inicio</a></li>
-        <li><a href="#ventanaEstilos">Ritmos & Styles</a></li>
-        <li><a href="#" id="abrirLoginFooter">Iniciar Sesión</a></li>
-        <li><a href="#" id="abrirCarritoFooter">Carrito de compras</a></li>
-      </ul>
-    </div>
+  <h4>Enlaces Rápidos</h4>
+  <ul>
+    <li><a href="#" class="link-footer" data-ir="ventanaPrincipal">Inicio</a></li>
+    <li><a href="#" class="link-footer" data-ir="ventanaEstilos">Ritmos & Styles</a></li>
+    <li><a href="#" class="link-footer" data-ir="login">Iniciar Sesión</a></li>
+    <li><a href="#" class="link-footer" data-ir="carrito">Carrito de compras</a></li>
+  </ul>
+</div>
+
 
     <div class="footer-col">
       <h4>Contacto</h4>
@@ -456,7 +478,6 @@
     © 2025 Thebauthi Productions — Todos los derechos reservados.
   </div>
 </footer>
-
  <script src="script.js"></script>
 </body>
 </html>

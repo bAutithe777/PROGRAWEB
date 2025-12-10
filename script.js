@@ -1,3 +1,6 @@
+/* -----------------------------
+ VARIABLES GENERALES
+------------------------------*/
 
 const ventanaPrincipal = document.getElementById("ventanaPrincipal");
 const ventanaEstilos = document.getElementById("ventanaEstilos");
@@ -10,130 +13,110 @@ const botonesComprar = document.querySelectorAll(".btnComprar");
 const botonesPlay = document.querySelectorAll(".btnPlay, .play-btn");
 
 const carritoIcono = document.querySelector(".ri-shopping-cart-line");
-let carritoConteo = 0;
 
- const hamburguesa = document.getElementById('hamburguesa');
-    const menu = document.getElementById('menu');
+const hamburguesa = document.getElementById('hamburguesa');
+const menu = document.getElementById('menu');
 
-    hamburguesa.addEventListener('click', () => {
-      menu.classList.toggle('show');
-    });
+/* -----------------------------
+ MENÚ HAMBURGUESA
+------------------------------*/
+hamburguesa.addEventListener('click', () => {
+    menu.classList.toggle('show');
+});
 
-
-// MOSTRAR Y OCULTAR SECCIONES
-
+/* -----------------------------
+ MOSTRAR/OCULTAR SECCIONES
+------------------------------*/
 function mostrarVentana(id) {
-  document.querySelectorAll("section, main").forEach(sec => {
-    sec.style.display = "none";
-  });
-  document.getElementById(id).style.display = "block";
+    document.querySelectorAll("section, main").forEach(sec => sec.style.display = "none");
+    document.getElementById(id).style.display = "block";
 }
 
-// PRIMERA VENTANA Y SEGUNDA para volver
-
-btnIngresar.addEventListener("click", () => {
-  mostrarVentana("ventanaEstilos");
-});
-
-
-// SEGUNDA Y PRIMERA para volver
+btnIngresar.addEventListener("click", () => mostrarVentana("ventanaEstilos"));
 
 botonesVolver.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const destino = btn.getAttribute("data-volver");
-
-    if (destino) mostrarVentana(destino);
-    else mostrarVentana("ventanaEstilos"); 
-  });
+    btn.addEventListener("click", () => {
+        const destino = btn.getAttribute("data-volver") || "ventanaEstilos";
+        mostrarVentana(destino);
+    });
 });
 
-
-// ABRIR VENTANA DE INFORMACION SEGUN EL TITULO O ARTISTA
-
+/* -----------------------------
+ ABRIR DETALLES POR TÍTULO
+------------------------------*/
 titulos.forEach(titulo => {
-  titulo.addEventListener("click", () => {
-    const detalleID = titulo.getAttribute("data-detalle");
-    mostrarVentana(detalleID);
-  });
+    titulo.addEventListener("click", () => {
+        mostrarVentana(titulo.getAttribute("data-detalle"));
+    });
 });
 
-
-// AGREGAR PRODUCTO AL CARRITO
+/* -----------------------------
+ AGREGAR AL CARRITO
+------------------------------*/
+function extraerPrecio(el) {
+    return Number(el.querySelector(".precio").textContent.replace("Bs/", ""));
+}
 
 botonesComprar.forEach(btn => {
-  btn.addEventListener("click", () => {
-      const producto = btn.getAttribute("data-producto");
-      const precio = Number(btn.parentElement.querySelector(".precio").textContent.replace("Bs/", ""));
-
-      agregarAlCarrito(producto, precio);
-  });
+    btn.addEventListener("click", () => {
+        agregarAlCarrito(btn.getAttribute("data-producto"), extraerPrecio(btn.parentElement));
+    });
 });
 
 document.querySelectorAll(".agregarCarrito").forEach(btn => {
-  btn.addEventListener("click", () => {
-      const nombre = btn.parentElement.querySelector("h3").textContent;
-      const precio = Number(btn.parentElement.querySelector(".precio").textContent.replace("Bs/", ""));
-
-      agregarAlCarrito(nombre, precio);
-  });
+    btn.addEventListener("click", () => {
+        agregarAlCarrito(
+            btn.parentElement.querySelector("h3").textContent,
+            extraerPrecio(btn.parentElement)
+        );
+    });
 });
 
-
 function actualizarCarrito() {
-  carritoIcono.setAttribute("data-count", carritoConteo);
-  carritoIcono.style.position = "relative";
-  carritoIcono.innerHTML = `<span class="contadorCarrito">${carritoConteo}</span>`;
+    carritoIcono.innerHTML = `<span class="contadorCarrito">${carritoConteo}</span>`;
 }
 
-
-// REPRODUCCIÓN DE AUDIO
-
+/* -----------------------------
+ REPRODUCTOR DE AUDIO
+------------------------------*/
 let audioActual = null;
 let botonActual = null;
 
 botonesPlay.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const audioRuta = btn.getAttribute("data-audio");
+    btn.addEventListener("click", () => {
+        const audioRuta = btn.getAttribute("data-audio");
+        if (!audioRuta) return alert("No hay audio todavía.");
 
-    if (!audioRuta) {
-      alert("No hay audio todavía.");
-      return;
-    }
+        if (botonActual === btn && audioActual) {
+            audioActual.pause();
+            audioActual.currentTime = 0;
+            btn.classList.remove("playing");
+            audioActual = botonActual = null;
+            return;
+        }
 
-    if (botonActual === btn && audioActual) {
-      audioActual.pause();
-      audioActual.currentTime = 0;
+        if (audioActual) {
+            audioActual.pause();
+            audioActual.currentTime = 0;
+        }
+        if (botonActual) botonActual.classList.remove("playing");
 
-      btn.classList.remove("playing");
-      audioActual = null;
-      botonActual = null;
-      return;
-    }
+        audioActual = new Audio(audioRuta);
+        audioActual.play();
 
-    if (audioActual) {
-      audioActual.pause();
-      audioActual.currentTime = 0;
-    }
-    if (botonActual) {
-      botonActual.classList.remove("playing");
-    }
+        btn.classList.add("playing");
+        botonActual = btn;
 
-    audioActual = new Audio(audioRuta);
-    audioActual.play();
-
-    // Agregar animación al botón cuando le de play
-    btn.classList.add("playing");
-    botonActual = btn;
-
-    audioActual.onended = () => {
-      btn.classList.remove("playing");
-      botonActual = null;
-      audioActual = null;
-    };
-  });
+        audioActual.onended = () => {
+            btn.classList.remove("playing");
+            audioActual = botonActual = null;
+        };
+    });
 });
 
-/*LOGIN Y SIGNUP */
+/* -----------------------------
+ LOGIN & SIGNUP
+------------------------------*/
 
 const modalAuth = document.getElementById("modalAuth");
 const loginForm = document.getElementById("loginForm");
@@ -141,7 +124,6 @@ const signupForm = document.getElementById("signupForm");
 
 const perfilIcono = document.querySelector(".ri-account-circle-line");
 const cerrarAuth = document.getElementById("cerrarAuth");
-
 const irSignup = document.getElementById("irSignup");
 const irLogin = document.getElementById("irLogin");
 
@@ -151,17 +133,12 @@ perfilIcono.addEventListener("click", () => {
     signupForm.style.display = "none";
 });
 
-cerrarAuth.addEventListener("click", () => {
-    modalAuth.style.display = "none";
+cerrarAuth.addEventListener("click", () => modalAuth.style.display = "none");
+
+window.addEventListener("click", e => {
+    if (e.target === modalAuth) modalAuth.style.display = "none";
 });
 
-window.addEventListener("click", (e) => {
-    if (e.target === modalAuth) {
-        modalAuth.style.display = "none";
-    }
-});
-
-/* Cambiar entre login y signup */
 irSignup.addEventListener("click", () => {
     loginForm.style.display = "none";
     signupForm.style.display = "block";
@@ -172,49 +149,31 @@ irLogin.addEventListener("click", () => {
     loginForm.style.display = "block";
 });
 
-/* FUNCIONALIDAD */
-
-// VALIDACIONES
+/* --- Validaciones --- */
 const regEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const regNombre = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s]+$/;
 
 document.getElementById("btnSignup").addEventListener("click", () => {
-    const nombre = document.getElementById("signupNombre").value.trim();
-    const email = document.getElementById("signupEmail").value.trim();
-    const pass = document.getElementById("signupPass").value.trim();
+    const nombre = signupNombre.value.trim();
+    const email = signupEmail.value.trim();
+    const pass = signupPass.value.trim();
 
-    // Validación PARA CAMPOS VACIOS
-    if (!nombre || !email || !pass) {
-        alert("Completa todos los campos.");
-        return;
-    }
+    if (!nombre || !email || !pass)
+        return alert("Completa todos los campos.");
 
-    // Validación PARA EL NOMBRE
-    if (!regNombre.test(nombre)) {
-        alert("El nombre solo puede contener letras y espacios.");
-        return;
-    }
+    if (!regNombre.test(nombre))
+        return alert("El nombre solo puede contener letras y espacios.");
 
-    // Validación PARA EMAIL INCOERECTO
-    if (!regEmail.test(email)) {
-        alert("Ingresa un correo electrónico válido.");
-        return;
-    }
+    if (!regEmail.test(email))
+        return alert("Ingresa un correo electrónico válido.");
 
-    // Validación PARA QUE LA CONTRASEÑA SOLO EA 6 DIFIGTOS
-    if (pass.length < 6) {
-        alert("La contraseña debe tener al menos 6 caracteres.");
-        return;
-    }
+    if (pass.length < 6)
+        return alert("La contraseña debe tener al menos 6 caracteres.");
 
-    // EMAIL REPETIDO
     const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
-    if (usuarioGuardado && usuarioGuardado.email === email) {
-        alert("Este correo ya está registrado.");
-        return;
-    }
+    if (usuarioGuardado?.email === email)
+        return alert("Este correo ya está registrado.");
 
-    // GUARDARE USUARIO
     localStorage.setItem("usuario", JSON.stringify({ nombre, email, pass }));
 
     alert("Cuenta creada correctamente");
@@ -222,29 +181,15 @@ document.getElementById("btnSignup").addEventListener("click", () => {
     loginForm.style.display = "block";
 });
 
-// Iniciar sesióN
+/* --- Login --- */
 document.getElementById("btnLogin").addEventListener("click", () => {
-    const email = document.getElementById("loginEmail").value.trim();
-    const pass = document.getElementById("loginPass").value.trim();
-
+    const email = loginEmail.value.trim();
+    const pass = loginPass.value.trim();
     const usuario = JSON.parse(localStorage.getItem("usuario"));
 
-    if (!usuario) {
-        alert("No hay usuarios registrados.");
-        return;
-    }
-
-    // Validación email
-    if (!email || !regEmail.test(email)) {
-        alert("Ingresa un correo electrónico válido.");
-        return;
-    }
-
-    // Validación contraseña
-    if (!pass) {
-        alert("Ingresa tu contraseña.");
-        return;
-    }
+    if (!usuario) return alert("No hay usuarios registrados.");
+    if (!email || !regEmail.test(email)) return alert("Ingresa un correo electrónico válido.");
+    if (!pass) return alert("Ingresa tu contraseña.");
 
     if (email === usuario.email && pass === usuario.pass) {
         alert("Bienvenido " + usuario.nombre);
@@ -254,8 +199,9 @@ document.getElementById("btnLogin").addEventListener("click", () => {
     }
 });
 
-
-/* CARRITO DE COMPRAS REAL*/
+/* -----------------------------
+ CARRITO DE COMPRAS
+------------------------------*/
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -276,18 +222,15 @@ function agregarAlCarrito(nombre, precio) {
 
 function mostrarCarrito() {
     listaCarrito.innerHTML = "";
-
-    if (carrito.length === 0) {
+    if (!carrito.length) {
         listaCarrito.innerHTML = "<p>El carrito está vacío.</p>";
         totalCarrito.textContent = "Bs/0";
         return;
     }
 
-    let total = 0;
+    let total = carrito.reduce((s, p) => s + p.precio, 0);
 
     carrito.forEach((producto, index) => {
-        total += producto.precio;
-
         listaCarrito.innerHTML += `
             <div class="carritoItem">
                 <div>
@@ -295,97 +238,117 @@ function mostrarCarrito() {
                     <span>Bs/${producto.precio}</span>
                 </div>
                 <button class="btnEliminarItem" data-index="${index}">X</button>
-            </div>
-        `;
+            </div>`;
     });
 
     totalCarrito.textContent = `Bs/${total}`;
 }
 
-// PARA ELIMINAR PRODUCTO DE CARRITO
 document.addEventListener("click", e => {
     if (e.target.classList.contains("btnEliminarItem")) {
-        const i = e.target.getAttribute("data-index");
-        carrito.splice(i, 1);
+        carrito.splice(e.target.dataset.index, 1);
         mostrarCarrito();
         actualizarCarritoUI();
     }
 });
 
-// Abrir carrito al presionar el icono
 carritoIcono.addEventListener("click", () => {
     mostrarCarrito();
     modalCarrito.style.display = "flex";
 });
 
-// Cerrar carrito
 cerrarCarrito.addEventListener("click", () => {
     modalCarrito.style.display = "none";
 });
 
-// Cerrar al hacer clic afuera
 window.addEventListener("click", e => {
-    if (e.target === modalCarrito) {
-        modalCarrito.style.display = "none";
-    }
+    if (e.target === modalCarrito) modalCarrito.style.display = "none";
 });
 
-/* ================= FILTRAR POR MARCA DEL MENÚ ================= */
-
-const opcionesMenu = document.querySelectorAll("#menu li");
-const ventanaFiltrada = document.getElementById("ventanaFiltrada");
-const listaFiltrada = document.getElementById("listaFiltrada");
-const tituloFiltro = document.getElementById("tituloFiltro");
-
-opcionesMenu.forEach(op => {
-  op.addEventListener("click", () => {
-    const marca = op.textContent.trim().toUpperCase();
-    filtrarPorMarca(marca);
-
-    // cerrar menú hamburguesa en móvil
-    menu.classList.remove("show");
-  });
+/* -----------------------------
+ PAGO
+------------------------------*/
+document.querySelector(".btnPagar").addEventListener("click", () => {
+    document.getElementById("formPago").style.display = "flex";
 });
 
-function filtrarPorMarca(marca) {
-  // limpiar vista
-  listaFiltrada.innerHTML = "";
+document.getElementById("pagarAhora").addEventListener("click", () => {
+    const campos = ["nombre", "direccion", "postal", "telefono", "correo"];
+    for (let c of campos) if (!document.getElementById(c).value)
+        return alert("Por favor complete todos los campos antes de pagar.");
 
-  // buscar todas las tarjetas de estilos
-  const estilos = document.querySelectorAll(
-    ".AngelesAzules, .Grupo5, .SonoraDinamita, .LuisMiguel, .AlejandroSanz, .CristianCastro"
-  );
+    alert("¡Gracias por su compra!\nSu pedido está en proceso.");
 
-  let encontrados = 0;
+    carrito = [];
+    actualizarCarritoUI();
+    listaCarrito.innerHTML = "";
+    totalCarrito.textContent = "Bs/0";
+    formPago.style.display = "none";
+    modalCarrito.style.display = "none";
 
-  estilos.forEach(est => {
-    const texto = est.querySelector("small").textContent.toUpperCase();
+    campos.forEach(c => document.getElementById(c).value = "");
+});
 
-    if (texto.includes(marca)) {
-      encontrados++;
+/* -----------------------------
+ FOOTER
+------------------------------*/
+document.querySelectorAll(".link-footer").forEach(enlace => {
+    enlace.addEventListener("click", e => {
+        e.preventDefault();
 
-      const img = est.querySelector("img").src;
-      const nombre = est.querySelector("strong").textContent;
-      const desc = est.querySelector("small").textContent;
+        const destino = enlace.dataset.ir;
+        if (destino === "login") {
+            modalAuth.style.display = "flex";
+            loginForm.style.display = "block";
+            signupForm.style.display = "none";
+        } else if (destino === "carrito") {
+            mostrarCarrito();
+            modalCarrito.style.display = "flex";
+        } else {
+            mostrarVentana(destino);
+            animacionSuave(destino);
+        }
+    });
+});
 
-      listaFiltrada.innerHTML += `
-        <div class="filtroItem">
-          <img src="${img}">
-          <div>
-            <strong>${nombre}</strong>
-            <br>
-            <small>${desc}</small>
-          </div>
-        </div>
-      `;
-    }
-  });
-
-  tituloFiltro.textContent = `Compatible con: ${marca}`;
-
-  if (encontrados === 0) {
-    listaFiltrada.innerHTML = "<p>No hay estilos compatibles con esta marca.</p>";
-  }
-
-  mostrarVentana("ventanaFiltrada");
+/* -----------------------------
+ ANIMACIÓN
+------------------------------*/
+function animacionSuave(id) {
+    const seccion = document.getElementById(id);
+    seccion.style.opacity = 0;
+    seccion.style.transition = "opacity 0.5s";
+    setTimeout(() => (seccion.style.opacity = 1), 50);
 }
+
+/* -----------------------------
+ FILTRO POR MARCA
+------------------------------*/
+const botonesMarcas = document.querySelectorAll("#menu li");
+const styles = document.querySelectorAll(".sectionCumbia > div, .sectionBaladas > div");
+
+botonesMarcas.forEach(boton => {
+    boton.addEventListener("click", () => {
+        const marca = boton.textContent.trim().toLowerCase();
+
+        styles.forEach(style => {
+            const marcas = style.dataset.marcas.split(",");
+            style.style.display = marcas.includes(marca) ? "flex" : "none";
+            if (marcas.includes(marca)) style.classList.add("fade-in");
+        });
+
+        btnVerTodo.style.display = "block";
+    });
+});
+
+/* -----------------------------
+ RESTAURAR FILTROS
+------------------------------*/
+btnVerTodo.addEventListener("click", () => {
+    styles.forEach(style => {
+        style.style.display = "flex";
+        style.classList.add("fade-in");
+    });
+
+    btnVerTodo.style.display = "none";
+});

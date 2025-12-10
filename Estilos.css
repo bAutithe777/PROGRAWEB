@@ -99,6 +99,18 @@ body {
 }
 
 
+/* OCULTA TODAS LAS SECCIONES AL INICIAR LA PÁGINA */
+.seccionMenuSty,
+.seccionCompraCumbia,
+.seccionCompraBalada,
+#detalleCristianCastro,
+#detalleLuisMiguel,
+#detalleGrupo5,
+#detalleAngelesAzules,
+#detalleLaSonoraDinamita,
+#detalleAlenjandroSanz {
+    display: none;
+}
 
 /*HEADER*/
 header {
@@ -308,6 +320,35 @@ header ul li:hover { color: #f1c40f; }
   color: white;
   cursor: pointer;
   flex-shrink: 0;
+}
+/*boton volver atras y mostrar todo*/
+.volverAtras img{
+  margin-block: px;
+  background: #d8ad09;
+  color: #d8ad09;
+  border: 2px solid #f1c40f;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: .35s;
+  animation: pulse 2s infinite ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+#btnVerTodo {
+   margin-top: 28px;
+  background: #000;
+  color: #d8ad09;
+  border: 2px solid #f1c40f;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: .35s;
+  animation: pulse 2s infinite ease-in-out;
+  position: relative;
+  z-index: 2;
 }
  
 /* TEXTO DEL STYLE */
@@ -574,7 +615,7 @@ header ul li:hover { color: #f1c40f; }
     cursor: pointer;
 }
 
-/*CARRITO DE COMPRAS*/
+/* ===================== MODAL CARRITO ===================== */
 .modalCarrito {
     position: fixed;
     top: 0;
@@ -649,7 +690,7 @@ header ul li:hover { color: #f1c40f; }
 
 .contadorCarrito {
   position: absolute;
-  font-family: 'Poppins', sans-serif;
+ font-family: 'Poppins', sans-serif;
   top: -8px;
   right: -10px;
   background: red;
@@ -659,6 +700,46 @@ header ul li:hover { color: #f1c40f; }
   font-size: 12px;
   font-weight: bold;
   z-index: 20;
+}
+
+.form-pago {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.boxPago {
+  background: #444;
+  color: #f1c40f;
+  padding: 20px;
+  width: 350px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.boxPago input {
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+#pagarAhora {
+  padding: 10px;
+  background: #f1c40f;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 /* PIE DE PAGINA*/
@@ -744,35 +825,21 @@ header ul li:hover { color: #f1c40f; }
   }
 }
 
-/* RESULTADO FILTRADO POR MARCA */
-.seccionFiltrada {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
+/* Animación para mostrar */
+.mostrar {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity .4s ease, transform .4s ease;
 }
 
-.filtroItem {
-  display: flex;
-  align-items: center;
-  background: #1e1e1e;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  gap: 15px;
+/* Animación para ocultar */
+.oculto {
+    opacity: 0;
+    transform: scale(.9);
+    pointer-events: none;
+    height: 0;
+    overflow: hidden;
+    transition: opacity .4s ease, transform .4s ease, height .4s ease;
 }
 
-.filtroItem img {
-  width: 45px;
-  height: 45px;
-  border-radius: 6px;
-}
 
-.filtroItem strong {
-  font-size: 15px;
-  color: #fff;
-}
-
-.filtroItem small {
-  font-size: 11px;
-  color: #71d3fc;
-}
